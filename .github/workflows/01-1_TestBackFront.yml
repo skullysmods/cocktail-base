@@ -76,7 +76,7 @@ jobs:
       - name: Start HotBuild Backend
         run: |
           cd ..
-          cp ../_tools/docker/docker-compose-back-build.yml .
+          cp ./_tools/docker/docker-compose-back-build.yml .
           docker compose -f docker-compose-back-build.yml up -d
           docker ps -a
 
