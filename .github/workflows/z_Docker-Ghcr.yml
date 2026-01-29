@@ -52,5 +52,5 @@ jobs:
           context: frontend
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LOWER }}-front:latest
-          build-args: MODE=${{ inputs.docker-mode }}
+          build-args: MODE=:canary
           
