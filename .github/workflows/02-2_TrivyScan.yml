@@ -41,6 +41,19 @@ jobs:
           path: back-trivy-results.txt
           retention-days: 1
 
+  Trivy_Scan_Front:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ env.USERNAME }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Downcase Image Name
+        run: echo "IMAGE_NAME_LOWER=${GITHUB_REPOSITORY,,}" >> ${GITHUB_ENV}
+      
       - name: Trivy FRONT Scanner
         uses: aquasecurity/trivy-action@0.28.0
         with:
