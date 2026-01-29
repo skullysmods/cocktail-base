@@ -24,8 +24,10 @@ jobs:
           echo "Docker Mode: ${{ inputs.docker-mode }}"
 
   Build-Push-Docker:
-    needs: [Display_Data]
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
