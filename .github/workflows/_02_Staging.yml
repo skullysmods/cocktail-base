@@ -35,5 +35,6 @@ jobs:
     uses: ./.github/workflows/02-3_DeployStaging.yml
     secrets: inherit
     permissions:
+      id-token: write
       contents: read
       packages: read
