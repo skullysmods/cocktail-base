@@ -38,6 +38,7 @@ jobs:
               --admin-username ${{ secrets.AZURE_VM_LOGIN }} \
               --admin-password ${{ secrets.AZURE_VM_PASSWORD }} \
               --public-ip-sku Standard \
+              --nsg "SecGroupNet" \
               --assign-identity
 
       - name: Open Port on Security Group
@@ -53,8 +54,8 @@ jobs:
         with:
           inlineScript: |
             #!/bin/bash
-            az vm show -d -g ${{env.ResourceGroupName}} -n jenpeuplus-staging-vm --query publicIps -o tsv
-            echo "AZURE_VM_IP=$(az vm show -d -g ${{env.ResourceGroupName}} -n jenpeuplus-staging-vm --query publicIps -o tsv)" >> $GITHUB_ENV  
+            az vm show -d -g ${{env.ResourceGroupName}} -n cours-ci-staging-vm --query publicIps -o tsv
+            echo "AZURE_VM_IP=$(az vm show -d -g ${{env.ResourceGroupName}} -n cours-ci-staging-vm --query publicIps -o tsv)" >> $GITHUB_ENV  
 
       - name: Install Docker on VM
         uses: appleboy/ssh-action@v1.0.3
