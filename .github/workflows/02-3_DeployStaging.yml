@@ -32,7 +32,7 @@ jobs:
           inlineScript: |
             az vm create \
               --resource-group ${{ env.ResourceGroupName }} \
-              --name "jenpeuplus-staging-vm" \
+              --name "cours-ci-staging-vm" \
               --image Ubuntu2204 \
               --size Standard_B2ats_v2 \
               --admin-username ${{ secrets.AZURE_VM_LOGIN }} \
