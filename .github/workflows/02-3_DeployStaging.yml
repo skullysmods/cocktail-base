@@ -104,12 +104,13 @@ jobs:
             echo ${{secrets.MONOREPO_PAT}} | docker login ghcr.io -u skullysmods --password-stdin
 
 
-            echo MONO_PROJECT_BACK=ghcr.io/${{env.IMAGE_NAME_LOWER}}-back:canary > .env
-            echo MONO_PROJECT_FRONT=ghcr.io/${{env.IMAGE_NAME_LOWER}}-front:canary >> .env
+            echo MONO_PROJECT_BACK=ghcr.io/${{env.IMAGE_NAME_LOWER}}-back:latest > .env
+            echo MONO_PROJECT_FRONT=ghcr.io/${{env.IMAGE_NAME_LOWER}}-front:latest >> .env
 
             chmod 600 .env
 
-            docker pull ghcr.io/${{env.IMAGE_NAME_LOWER}}-back:canary
-            docker pull ghcr.io/${{env.IMAGE_NAME_LOWER}}-front:canary
+            docker pull ghcr.io/${{env.IMAGE_NAME_LOWER}}-back:latest
+            docker pull ghcr.io/${{env.IMAGE_NAME_LOWER}}-front:latest
 
+            mv ./_tools/docker/docker-compose.yml ./docker-compose.yml
             docker compose up -d
