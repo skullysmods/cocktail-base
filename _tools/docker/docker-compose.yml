@@ -31,6 +31,8 @@ services:
     depends_on:
       cocktail_bdd:
         condition: service_healthy
+    networks:
+      - cocktail-network
     restart: unless-stopped
 
   cocktail_front:
