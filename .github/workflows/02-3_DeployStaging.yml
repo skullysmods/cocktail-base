@@ -32,7 +32,7 @@ jobs:
           resourceGroupName: ${{env.ResourceGroupName}}
           scope: resourcegroup
           template: https://raw.githubusercontent.com/Azure/azure-quickstart-templates/refs/heads/master/quickstarts/microsoft.compute/vm-simple-linux/azuredeploy.json
-          parameters: |
+          parameters: >
             adminUsername=${{ secrets.AZURE_VM_LOGIN }}
             adminPasswordOrKey=${{ secrets.AZURE_VM_PASSWORD }}
             vmName="cours-ci-staging-vm"
