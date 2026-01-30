@@ -20,8 +20,26 @@ services:
       - cocktail-network
     restart: unless-stopped
 
-  cocktail_app:
-    ## To complete
+  cocktail_back:
+    container_name: cocktail_back
+    image: ${MONO_PROJECT_BACK}
+    ports:
+      - 12000:12000
+    environment:
+      BDD_HOST: cocktail_bdd
+      BDD_PORT: 3306
+    depends_on:
+      cocktail_bdd:
+        condition: service_healthy
+    restart: unless-stopped
+
+  cocktail_front:
+    container_name: cocktail_front
+    image: ${MONO_PROJECT_FRONT}
+    ports:
+      - "80:80"
+    depends_on:
+      - cocktail_back
     networks:
       - cocktail-network
     restart: unless-stopped
