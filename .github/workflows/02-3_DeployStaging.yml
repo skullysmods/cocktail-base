@@ -11,7 +11,7 @@ jobs:
     env:
       ResourceGroupName: "Cours-ci-RG-staging"
       ResourceGroupLocation: "swedencentral"
-    
+
     steps:
       - name: Azure Login
         uses: azure/login@v2
