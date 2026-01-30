@@ -9,7 +9,7 @@ jobs:
     environment: STAGING
 
     env:
-      ResourceGroupName: "cours-ci-RG-staging"
+      ResourceGroupName: "Cours-ci-RG-staging"
       ResourceGroupLocation: "swedencentral"
     
     steps:
