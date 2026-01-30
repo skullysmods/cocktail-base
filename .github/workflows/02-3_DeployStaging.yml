@@ -110,6 +110,11 @@ jobs:
             echo MONO_PROJECT_BACK=ghcr.io/${{env.IMAGE_NAME_LOWER}}-back:latest > .env
             echo MONO_PROJECT_FRONT=ghcr.io/${{env.IMAGE_NAME_LOWER}}-front:latest >> .env
 
+            echo MARIADB_ROOT_PASSWORD=toor >> .env
+            echo MARIADB_DATABASE=bddname >> .env
+            echo MARIADB_USER=roger >> .env
+            echo MARIADB_PASSWORD=regor >> .env
+
             chmod 600 .env
 
             docker pull ghcr.io/${{env.IMAGE_NAME_LOWER}}-back:latest
